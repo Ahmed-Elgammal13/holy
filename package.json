@@ -7,6 +7,7 @@
   "engines": {
     "node": "20.x"
   },
+  {
   "scripts": {
     "fresh-install": "npm cache verify && npm update && npm ci && cd lib/rammerhead && npm ci",
     "fresh-start": "npm run fresh-install && npm start",
@@ -16,12 +17,14 @@
     "test": "npm run proxy-validator",
     "manual-start": "node run-command.mjs start",
     "kill": "node run-command.mjs stop kill",
-    "build": "node run-command.mjs build && cd lib/rammerhead && npm run build",
+    "build": "cd lib/rammerhead && npm ci && npm run build && cd ../.. && node run-command.mjs build",
     "clear": "node run-command.mjs clean",
     "clean": "node run-command.mjs clean format",
     "proxy-validator": "node proxyServiceValidator.js",
     "workflow-test": "node run-command.mjs workflow",
-    "deployment": "npm install && npm run build && node backend.js"
+    "deployment": "npm install && npm run build && node backend.js",
+    "postinstall": "cd lib/rammerhead && npm install"
+  }
   },
   "keywords": [
     "proxy",
