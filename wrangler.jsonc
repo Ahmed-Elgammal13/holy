@@ -1,5 +1,7 @@
 {
   "name": "holy",
   "compatibility_date": "2026-02-12",
-  "main": "backend.js"
+  "compatibility_flags": ["nodejs_compat"],
+  "main": "backend.js",
+  "format": "esm"
 }
